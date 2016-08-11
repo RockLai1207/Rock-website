@@ -10,16 +10,14 @@ jQuery(document).ready(function($) {
 	        beforeSend: function(xhr) {
 	             xhr.setRequestHeader("Access-Control-Allow-Origin", "*")
 	        }, success: function(data){
-	 if (data.redirect) {
-            // data.redirect contains the string URL to redirect to
-            window.location.href = data.redirect;
-        }
+		console.log(data);
+		 if (data.redirect) {
+	            // data.redirect contains the string URL to redirect to
+	            window.location.href = data.redirect;
+	        }
 	 //     alert(JSON.stringify(data));
 	            //process the JSON data etc
-	        },
-	    error: function (data) {
-	      alert(JSON.stringify(data));
-	    }
+	        }
 	})
 
 	// $.ajax({
