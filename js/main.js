@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
 	        beforeSend: function(xhr) {
 	             xhr.setRequestHeader("Access-Control-Allow-Origin", "*")
 	        }, success: function(data){
+	        	window.location.href = data.redirect;
 	      alert(JSON.stringify(data));
 	            //process the JSON data etc
 	        },
