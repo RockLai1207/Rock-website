@@ -18,8 +18,64 @@
   	<!-- Shape CSS file -->
 	<script language="JavaScript">
 		function swapimage(imgname, imgpath){ document.images[imgname].src=imgpath; } <!--設置圖片切換-->
-			
+		
 	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script language="JavaScript">
+		$(function(){
+			$.ajax({
+				type: "GET",
+				dataType: "jsonp",
+				cache: false,
+				url: "https://api.instagram.com/v1/users/37047770/media/recent?count=33&access_token=37047770.d5893d8.ad79f464686f4bbc8aed50790e42d2e2",
+				success: function(data) {
+			      // alert(JSON.stringify(data));
+					console.log(data);
+					for (var i = 0; i < 10; i++) {
+						$(".instagram_img").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.thumbnail.url + "'></img></a></li>");
+					}
+				}
+			});
+		})
+		// var url=window.location.toString(); //取得當前網址
+		// var str=""; //參數中等號左邊的值
+		// var str_value=""; //參數中等號右邊的值
+		// if(url.indexOf("?")!=-1){
+		//     //如果網址有"?"符號
+		//     var ary=url.split("?")[1];
+		//         str=ary.split("=");
+		//          console.log("str",str);
+		//             str_value = str[1];
+		//    	alert(str_value); //顯示參數的值
+		//    $(function(){
+		//    		$.ajax({
+		//    			type: 		"get",
+		//    			url: 		"https://api.instagram.com/v1/users/37047770/media/recent?access_token="+str_value, //使用JSONP務必在結尾使用 GET 的 callback=?
+		//    			dataType: 	"jsonp",
+		//    			success: 	function (data)
+		//    						{
+		//    							alert(data); //顯示參數的值
+
+		//    							for (var i = 0; i < 10; i++) {
+		// 								$(".instagram_img").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a></li>");
+		// 							}
+									
+			
+		//    						},
+		//    			error: 		function (data)
+		//    						{
+		//    							console.log("GG",data);
+		//    						}
+		//    		})
+		//    	})
+		// }else{
+		// 	document.location.href="https://api.instagram.com/oauth/authorize/?client_id=95e6922266da418a88cae604222b7d76&redirect_uri=http://localhost:8888&response_type=code";
+		// 	console.log("go"); //顯示參數的值
+		// }
+		// console.log("end"); //顯示參數的值
+	</script>
+
+
   	<style type="text/css">
 
         #header .top.solid,
@@ -28,6 +84,7 @@
             background-color: #69adb5;
         }
   	</style>
+
 	<title>Rock.</title>
 </head>
 <body>
@@ -254,7 +311,7 @@
 
 		</div> <!-- cd-fixed-bg -->
 	</main> <!-- cd-main-content -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/main.js"></script> <!-- Resource jQuery -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+	<!-- <script src="js/main.js"></script> <!-- Resource jQuery --> -->
 </body>
 </html>
