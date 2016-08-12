@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="rocklai icon" href="img/logo.ico">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" href="css/component.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
@@ -30,7 +30,6 @@
 				url: "https://api.instagram.com/v1/users/37047770/media/recent?count=33&access_token=37047770.d5893d8.ad79f464686f4bbc8aed50790e42d2e2",
 				success: function(data) {
 			      // alert(JSON.stringify(data));
-					console.log(data);
 					for (var i = 0; i < 10; i++) {
 						$(".instagram_img").append("<li><a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.thumbnail.url + "'></img></a></li>");
 					}
